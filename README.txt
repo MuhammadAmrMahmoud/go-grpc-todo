@@ -1,1 +1,2 @@
-DoubleClick on RUN.bat to start 
+-    ToDo App using (go - grpc - sqlite)
+-    DoubleClick on RUN.bat to start 
