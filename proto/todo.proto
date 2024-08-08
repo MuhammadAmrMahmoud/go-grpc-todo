@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+option go_package = "/pb";
+
+package todo;
+
+service TodoService {
+  rpc AddTodo (AddTodoRequest) returns (AddTodoResponse);
+  rpc ListTodos (ListTodosRequest) returns (ListTodosResponse);
+  rpc GetTodo (GetTodoRequest) returns (GetTodoResponse);
+  rpc UpdateTodo (UpdateTodoRequest) returns (UpdateTodoResponse);
+  rpc UpdateTodoStatus (UpdateTodoStatusRequest) returns (UpdateTodoStatusResponse);
+  rpc DeleteTodo (DeleteTodoRequest) returns (DeleteTodoResponse);
+  
+}
+
+message Todo {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
+  bool completed = 4;
+}
+
+message AddTodoRequest {
+  string title = 1;
+  string description = 2;
+}
+
+message AddTodoResponse {
+  Todo todo = 1;
+}
+
+message ListTodosRequest {}
+
+message ListTodosResponse {
+  repeated Todo todos = 1;
+}
+
+
+message GetTodoRequest {
+  int32 id = 1;
+}
+
+message GetTodoResponse {
+  Todo todo = 1;
+}
+
+message UpdateTodoRequest {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
+  bool completed = 4;
+}
+
+message UpdateTodoResponse {
+  Todo todo = 1;
+}
+
+message UpdateTodoStatusRequest {
+  int32 id = 1;
+  bool completed = 2;
+}
+
+message UpdateTodoStatusResponse {
+  Todo todo = 1;
+}
+
+message DeleteTodoRequest {
+  int32 id = 1;
+}
+
+message DeleteTodoResponse {
+  bool success = 1;
+}
